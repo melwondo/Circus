@@ -7,14 +7,21 @@ use App\Repository\PerformancesRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ContactRepository;
+use App\Repository\AboutRepository;
+use App\Entity\About;
 
 class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="accueil")
      */
-    public function index(Request $request, PerformancesRepository $perf)
+    public function index(Request $request, PerformancesRepository $perf, AboutRepository $about)
     {
+        $about = $this->getDoctrine()
+            ->getRepository(About::class)
+            ->findAll();
+
         $perf = $this->getDoctrine()
             ->getRepository(Performances::class)
             ->findAll();
@@ -22,6 +29,7 @@ class IndexController extends AbstractController
 
         return $this->render('index/index.html.twig', [
             'perf' => $perf,
+            'about' => $about,
         ]);
     }
 

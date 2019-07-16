@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}Contact !{% endblock %}
+
+{% block content %}
+
+<div class="parallax"></div>
+
+<div class="container pt-5 pb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-5 d-flex justify-content-center">
+            <img src="https://image.flaticon.com/sprites/new_packs/1934613-circus.png" class="img-fluid img-qsn">
+        </div>
+        <div class="col-7 align-self-center">
+            <div class="align-self-end m-2">
+                <a class="btn btn-success btn-lg " href="#" data-toggle="modal" data-target="#modalRegisterForm"
+                    role="button">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center ">
+                <h4 class="modal-title w-100 font-weight-bold">Contact Us</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    {{ form_start(form) }}
+                     
+                </div>
+                
+                
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success btn-lg ">
+                        Send
+                    </button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="parallax"></div>
+{% endblock %}

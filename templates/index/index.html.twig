@@ -34,16 +34,14 @@
             <img src="https://image.flaticon.com/sprites/new_packs/1934613-circus.png" class="img-fluid img-qsn">
         </div>
         <div class="col-7 align-self-center">
-            <h1>Us</h1>
-            <p>The wild circus is above all the culmination of a children's dream.
-                We spent our childhood surrounded by clown, magician and tamer. We were facicinated by their
-                performance, their costumes and we wanted to do the same thing.
-                After several years we began to reproduce in various circuses. We wanted to create our own show, show
-                you new perfomance and that's where the wild circus was born.
-                Since its creations in 2010, we strive to create unforgettable shows for both young and old. </p>
+        {% for abouts in about %}
+            <h1>{{ abouts.titre }}</h1>
+            <p>{{ abouts.description }}</p>
+        {% endfor %}
         </div>
     </div>
 </div>
+<div class="parallax"></div>
 
 {# https://image.flaticon.com/sprites/new_packs/1934613-circus.png width="50%" card-title d-flex justify-content-center#}
 
