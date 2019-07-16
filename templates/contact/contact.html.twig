@@ -4,6 +4,16 @@
 
 {% block content %}
 
+{% for message in app.flashes('notice') %}
+<div class="flash-notice alert alert-info text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
+</div>
+
+{% endfor %}
+
 <div class="parallax"></div>
 
 <div class="container pt-5 pb-5">
@@ -33,10 +43,11 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     {{ form_start(form) }}
-                     
+                    {{ form_row(form.nom) }}
+                    {{ form_row(form.prenom) }}
+                    {{ form_row(form.mail) }}
+                    {{ form_row(form.message) }}
                 </div>
-                
-                
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="submit" class="btn btn-success btn-lg ">
                         Send

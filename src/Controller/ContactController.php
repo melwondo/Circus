@@ -14,7 +14,7 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(\Swift_Mailer $mailer, Request $request)
+    public function index(\Swift_Mailer $mailer, Request $request )
     {
         $contact = new Contact();
 
@@ -32,7 +32,7 @@ class ContactController extends AbstractController
             ->setBody(
                 $this->renderView(
                     'Email/notificationContact.html.twig',
-                    ['client' => $contact]
+                    ['contact' => $contact]
                 ),
                 'text/html'
             );
