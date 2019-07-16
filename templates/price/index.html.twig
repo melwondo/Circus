@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pricing !{% endblock %}
+
+{% block content %}
+<div class="tot">
+    <img src="./images/ticket.jpg" alt="img-fluid" width="100%" class="img-fluid">
+</div>
+
+<h1 class="d-flex justify-content-center pt-5 pb-5 text-warning">Our Price</h1>
+
+<div class="container pt-5 pb-5">
+    <table class="table table-hover">
+        <thead class="table-primary">
+            <tr>
+                <th rowspan="1"></th>
+                <th scope="col">Adults</th>
+                <th scope="col">Children under 12 years</th>
+                <th scope="col">Groups (more than 10 people)</th>
+                <th scope="col">Schools</th>
+            </tr>
+        </thead>
+        <tbody class="table-success">
+            <tr>
+                <th>Weeks off Wednesday</th>
+                <td>20$</td>
+                <td>10$</td>
+                <td>180$</td>
+                <td>80$</td>
+            </tr>
+
+
+            <tr>
+                <th>Weekend and wednesday</th>
+                <td>35$</td>
+                <td>20$</td>
+                <td>280$</td>
+                <td>100$</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="parallax"></div>
+{% endblock %}
