@@ -41,8 +41,8 @@
                         {% if app.user %}
                         <button type="button" class="btn btn-primary"><a
                                 href="{{ path('app_logout') }}">Logout</a></button>
-                            {% else %}
-                                <button type="button" class="btn btn-primary"><a
+                        {% else %}
+                        <button type="button" class="btn btn-primary"><a
                                 href="{{ path('app_login') }}">Connection</a></button>
                         {% endif %}
                     </li>
