@@ -1,0 +1,17 @@
+{% extends 'backoffice.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Edit Performances{% endblock %}
+
+{% block content %}
+<div class="container pt-5 pb-5">
+    <h1>Edit Performances</h1>
+
+    {{ include('performances/_form.html.twig', {'button_label': 'Update'}) }}
+
+     <button type="button " class="btn btn-outline-success"><a href="{{ path('performances_index') }}">back to list</a></button>
+
+    {{ include('performances/_delete_form.html.twig') }}
+</div>
+{% endblock %}

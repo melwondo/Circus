@@ -1,0 +1,13 @@
+{% extends 'backoffice.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}New Performances{% endblock %}
+
+{% block content %}
+<div class="container pt-5 pb-5">
+    <h1>Create new Performances</h1>
+
+    {{ include('performances/_form.html.twig') }}
+
+     <button type="button " class="btn btn-outline-success"><a href="{{ path('performances_index') }}">back to list</a></button>
+</div>
+{% endblock %}
