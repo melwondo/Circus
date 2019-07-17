@@ -1,0 +1,21 @@
+@import "vars";
+
+body{
+    background-color: lightgrey;
+    font-size: 19px;
+}
+.parallax {
+    background-image: url("/images/accueil/cir.jpg");
+    height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+footer li{
+    text-decoration: none;
+    list-style: none;
+}
+
+

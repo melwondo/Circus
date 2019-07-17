@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wild Circus !{% endblock %}
+
+{% block content %}
+
+<div class="tot">
+
+    <img src="./images/ticket.jpg" alt="img-fluid" width="100%" class="img-fluid">
+
+</div>
+
+<h1 class="d-flex justify-content-center pt-5 pb-5 ">Performance</h1>
+
+<div class="container pt-5 pb-5">
+    <div class="row d-flex justify-content-center justify-content-around m-2">
+        {% for perfs in perf %}
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{ perfs.nom }}</div>
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-center">
+                    <img class="tt" src="./images/accueil/{{ perfs.logo }}" width="50%" alt="logo service">
+                </h4>
+                <p class="card-text">{{ perfs.contenu }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="parallax"></div>
+
+<div class="container pt-5 pb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-5 d-flex justify-content-center">
+            <img src="https://image.flaticon.com/sprites/new_packs/1934613-circus.png" class="img-fluid img-qsn">
+        </div>
+        <div class="col-7 align-self-center">
+        {% for abouts in about %}
+            <h1>{{ abouts.titre }}</h1>
+            <p>{{ abouts.description }}</p>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="parallax"></div>
+
+{# https://image.flaticon.com/sprites/new_packs/1934613-circus.png width="50%" card-title d-flex justify-content-center#}
+
+{% endblock %}
