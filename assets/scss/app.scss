@@ -1,7 +1,7 @@
 @import "vars";
 
 body{
-    background-color: lightgrey;
+    background-color:lightgrey;
     font-size: 19px;
 }
 .parallax {
@@ -18,4 +18,7 @@ footer li{
     list-style: none;
 }
 
+a:hover{
+    text-decoration: none !important; 
+}
 

@@ -1,5 +1,5 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'backoffice.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block title %}New Performances{% endblock %}
 
 {% block content %}
@@ -8,6 +8,6 @@
 
     {{ include('performances/_form.html.twig') }}
 
-    <a href="{{ path('performances_index') }}">back to list</a>
+     <button type="button " class="btn btn-outline-success"><a href="{{ path('performances_index') }}">back to list</a></button>
 </div>
 {% endblock %}

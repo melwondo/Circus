@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'backoffice.html.twig' %}
 
 {% block title %}Performances{% endblock %}
 
@@ -27,9 +27,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('performances_index') }}">back to list</a>
+     <button type="button " class="btn btn-outline-success"><a href="{{ path('performances_index') }}">back to list</a></button>
 
-    <a href="{{ path('performances_edit', {'id': performance.id}) }}">edit</a>
+    <button type="button " class="btn btn-outline-success"><a href="{{ path('performances_edit', {'id': performance.id}) }}">edit</a></button>
 
     {{ include('performances/_delete_form.html.twig') }}
 </div>

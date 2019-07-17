@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'backoffice.html.twig' %}
 
 {% block title %}Performances index{% endblock %}
 
@@ -24,8 +24,8 @@
                 <td>{{ performance.contenu }}</td>
                 <td>{{ performance.logo }}</td>
                 <td>
-                    <a href="{{ path('performances_show', {'id': performance.id}) }}">show</a>
-                    <a href="{{ path('performances_edit', {'id': performance.id}) }}">edit</a>
+                 <button type="button" class="btn btn-outline-success"><a href="{{ path('performances_show', {'id': performance.id}) }}">show</a></button> 
+                    <button type="button" class="btn btn-outline-success"><a href="{{ path('performances_edit', {'id': performance.id}) }}">edit</a></button> 
                 </td>
             </tr>
         {% else %}
@@ -36,6 +36,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('performances_new') }}">Create new</a>
+    <button type="button" class="btn btn-outline-warning"><a href="{{ path('performances_new') }}">Create new</a></button> 
 </div>
 {% endblock %}

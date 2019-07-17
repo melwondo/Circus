@@ -6,6 +6,7 @@ use App\Entity\Performances;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class PerformancesType extends AbstractType
 {
@@ -14,7 +15,11 @@ class PerformancesType extends AbstractType
         $builder
             ->add('nom')
             ->add('contenu')
-            ->add('logo')
+            ->add('logo', FileType::class, [
+                'label' => 'Image (jpg, png)',
+                'required' => false,
+                'mapped' => false,
+                'data_class' => null,])
         ;
     }
 

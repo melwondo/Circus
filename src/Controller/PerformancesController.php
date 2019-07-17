@@ -5,12 +5,18 @@ namespace App\Controller;
 use App\Entity\Performances;
 use App\Form\PerformancesType;
 use App\Repository\PerformancesRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Services\FileUploader;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
+ * 
+ * @IsGranted("ROLE_ADMIN")
+ * 
  * @Route("/performances")
  */
 class PerformancesController extends AbstractController
@@ -28,13 +34,20 @@ class PerformancesController extends AbstractController
     /**
      * @Route("/new", name="performances_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $fileUploader ): Response
     {
         $performance = new Performances();
         $form = $this->createForm(PerformancesType::class, $performance);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form['logo']->getData();
+            if (!empty($imageFile)) {
+                $imageFileName = $fileUploader->uploadImgPerf($imageFile);
+                $performance->setLogo($imageFileName);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($performance);
             $entityManager->flush();
@@ -61,12 +74,19 @@ class PerformancesController extends AbstractController
     /**
      * @Route("/{id}/edit", name="performances_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Performances $performance): Response
+    public function edit(Request $request, Performances $performance, FileUploader $fileUploader): Response
     {
+        // $perf = new Performances();
         $form = $this->createForm(PerformancesType::class, $performance);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form['logo']->getData();
+            if (!empty($imageFile)) {
+                $imageFileName = $fileUploader->uploadImgPerf($imageFile);
+                $performance->setLogo($imageFileName);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('performances_index');

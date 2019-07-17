@@ -18,7 +18,7 @@
     <div class="toto">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark " id="navbarPosition">
             <a class="navbar-brand" href="{{ path('accueil')}}">Wild Circus</a>
-            <img src="./images/accueil/marvelat-5d2ee07777180.png" width="3%" alt="">
+            <img src="/images/accueil/marvelat-5d2ee07777180.png" width="3%" alt="">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
                 aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,10 +27,10 @@
             <div class="collapse navbar-collapse d-flex justify-content-end mr-5" id="navbarColor02">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('price') }}">Pricing</a>
+                        <a class="nav-link" href="{{ path('performances_index') }}">Performances</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+                        <a class="nav-link" href="{{ path('about_index') }}">About Us</a>
                     </li>
                     <li class="nav-item">
                         {% if app.user %}
@@ -38,7 +38,7 @@
                                 href="{{ path('app_logout') }}">Logout</a></button>
                         {% else %}
                         <button type="button" class="btn btn-primary"><a
-                                href="{{ path('app_login') }}">Login</a></button>
+                                href="{{ path('app_login') }}">Connection</a></button>
                         {% endif %}
                     </li>
                 </ul>
@@ -53,6 +53,12 @@
         <div class="row bg-primary pt-5 pb-5 d-flex justify-content-center justify-content-around ">
             <li>
                 <a href="{{ path('accueil') }}">Accueil</a>
+            </li>
+            <li>
+                <a href="#">Performances</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
             </li>
             <li>
                 <a href="{{ path('price') }}">Pricing</a>

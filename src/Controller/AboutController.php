@@ -5,12 +5,16 @@ namespace App\Controller;
 use App\Entity\About;
 use App\Form\AboutType;
 use App\Repository\AboutRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
+ * 
+ * @IsGranted("ROLE_ADMIN")
+ * 
  * @Route("/about")
  */
 class AboutController extends AbstractController
